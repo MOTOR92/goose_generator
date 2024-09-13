@@ -1,5 +1,5 @@
 // Количество генераций
-const numGenerations = 100;
+const numGenerations = 1;
 
 // Функция для генерации изображения
 async function generateImage() {
@@ -34,7 +34,7 @@ function saveImage(index) {
     const titleElement = svgElement.querySelector('title');
     let fileTitle = `goose-pfp-${index}`;
     if (titleElement) {
-        fileTitle = titleElement.textContent.split(' by ')[0].trim();
+        fileTitle = titleElement.textContent.split(' by ')[0].trim().replace(/['"]/g, ''); // Удаляем кавычки
     }
 
     // Создаем ссылку для скачивания
@@ -43,7 +43,7 @@ function saveImage(index) {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${fileTitle}-${index}.svg`;  // Имя файла с расширением
+    a.download = `${fileTitle}.svg`;  // Имя файла с расширением
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
