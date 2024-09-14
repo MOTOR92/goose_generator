@@ -17,5 +17,5 @@ npm install puppeteer
 ```
 ### 3. Запуск
 ```bash
-npm puppeteer_script.js
+node puppeteer_script.js
 ```
